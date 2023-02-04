@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      form {
+        width: 300px;
+        margin: 100px auto;
+        text-align: center;
+      }
+      
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+      
+      input[type="text"], input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+      
+      button[type="submit"] {
+        padding: 10px 20px;
+        background-color: green;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username">
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+      
+      <button type="submit">Submit</button>
+    </form>
+    
+    <script>
+      const loginForm = document.getElementById("loginForm");
+  
+      loginForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+  
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+  
+        console.log("Username:", username);
+        console.log("Password:", password);
+      });
+    </script>
+  </body>
+</html>
