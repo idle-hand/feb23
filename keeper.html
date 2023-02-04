@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Canadian Province Capital Cities Quiz</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      h1 {
+        margin-top: 50px;
+      }
+
+      form {
+        font-size: 20px;
+        margin-top: 50px;
+        text-align: left;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      input[type="radio"] {
+        margin-right: 10px;
+      }
+
+      input[type="submit"] {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 18px;
+      }
+
+      .result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: green;
+        display: none;
+      }
+
+      .incorrect {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Canadian Province Capital Cities Quiz</h1>
+    <form>
+      <p>What is the capital of Alberta?</p>
+      <label>
+        <input type="radio" name="capital" value="Edmonton">
+        Edmonton
+      </label>
+      <label>
+        <input type="radio" name="capital" value="Toronto">
+        Toronto
+      </label>
+      <label>
+        <input type="radio" name="capital" value="Vancouver">
+        Vancouver
+      </label>
+      <input type="submit" value="Submit">
+    </form>
+    <div class="result">Correct! The capital of Alberta is Edmonton.</div>
+    <div class="result incorrect">Incorrect. The capital of Alberta is Edmonton.</div>
+
+    <script>
+      const form = document.querySelector("form");
+      const result = document.querySelector(".result");
+      const incorrect = document.querySelector(".incorrect");
+
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const selected = document.querySelector("input[name=capital]:checked");
+        if (selected.value === "Edmonton") {
+          result.style.display = "block";
+          incorrect.style.display = "none";
+        } else {
+          result.style.display = "none";
+          incorrect.style.display = "block";
+        }
+      });
+    </script>
+  </body>
+</html>
