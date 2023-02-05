@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="laststyle.css">
+    <title>Canadian Province Capital Cities Quiz</title>
+  </head>
+  <body>
+    <h1>Canadian Province Capital Cities Quiz</h1>
+    <form id="quiz-form">
+      <div>
+        <label for="question1">What is the capital of Ontario?</label>
+        <br>
+        <input type="radio" id="question1" name="question1" value="Toronto">Toronto
+        <br>
+        <input type="radio" id="question1" name="question1" value="Ottawa">Ottawa
+        <br>
+        <input type="radio" id="question1" name="question1" value="Montreal">Montreal
+      </div>
+      <br>
+      <div>
+        <label for="question2">What is the capital of Quebec?</label>
+        <br>
+        <input type="radio" id="question2" name="question2" value="Toronto">Toronto
+        <br>
+        <input type="radio" id="question2" name="question2" value="Quebec City">Quebec City
+        <br>
+        <input type="radio" id="question2" name="question2" value="Montreal">Montreal
+      </div>
+      <br>
+      <div>
+        <label for="question3">What is the capital of British Columbia?</label>
+        <br>
+        <input type="radio" id="question3" name="question3" value="Victoria">Victoria
+        <br>
+        <input type="radio" id="question3" name="question3" value="Vancouver">Vancouver
+        <br>
+        <input type="radio" id="question3" name="question3" value="Montreal">Montreal
+      </div>
+      <br>
+      <input type="submit" value="Submit">
+    </form>
+    <div id="result"></div>
+
+    <script>
+      const form = document.getElementById("quiz-form");
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        let score = 0;
+        const question1 = document.querySelector('input[name="question1"]:checked').value;
+        const question2 = document.querySelector('input[name="question2"]:checked').value;
+        const question3 = document.querySelector('input[name="question3"]:checked').value;
+
+        if (question1 === "Toronto") {
+          score++;
+        }
+        if (question2 === "Quebec City") {
+          score++;
+        }
+        if (question3 === "Victoria") {
+          score++;
+        }
+
+        const result = document.getElementById("result");
+        result.innerHTML = `You scored ${score} out of 3`;
+      });
+    </script>
