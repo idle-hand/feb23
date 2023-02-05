@@ -1,0 +1,130 @@
+<html>
+  <head>
+    <style>
+      /* Responsive design */
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Quiz styles */
+      .quiz-container {
+        background-color: lightgray;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .question {
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .options {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .options li {
+        margin-bottom: 10px;
+      }
+
+      .options input[type="radio"] {
+        margin-right: 10px;
+      }
+
+      /* Result styles */
+      .result-container {
+        display: none;
+        background-color: lightgray;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .result {
+        font-size: 18px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="quiz-container">
+      
+       <div class="question">What is the capital of Alberta?</div>
+  <ul class="options">
+    <li>
+      <input type="radio" name="answer1" value="Toronto">Toronto
+    </li>
+    <li>
+      <input type="radio" name="answer1" value="Edmonton">Edmonton
+    </li>
+    <li>
+      <input type="radio" name="answer1" value="Victoria">Victoria
+    </li>
+  </ul>
+  
+  <div class="question">What is the capital of British Columbia?</div>
+  <ul class="options">
+    <li>
+      <input type="radio" name="answer2" value="Ottawa">Ottawa
+    </li>
+    <li>
+      <input type="radio" name="answer2" value="Victoria">Victoria
+    </li>
+    <li>
+      <input type="radio" name="answer2" value="Edmonton">Edmonton
+    </li>
+  </ul>
+  <div class="question">What is the capital of Ontario?</div>
+  <ul class="options">
+    <li>
+      <input type="radio" name="answer3" value="Toronto">Toronto
+    </li>
+    <li>
+      <input type="radio" name="answer3" value="Victoria">Victoria
+    </li>
+    <li>
+      <input type="radio" name="answer3" value="Ottawa">Ottawa
+    </li>
+  </ul>
+
+        <button id="submit-button">Submit</button>
+      </div>
+      <div class="result-container">
+        <div class="result">You scored: <span id="score">0</span>/1</div>
+      </div>
+    </div>
+    <script>
+      const submitButton = document.querySelector("#submit-button");
+      const resultContainer = document.querySelector(".result-container");
+      const scoreSpan = document.querySelector("#score");
+
+
+      submitButton.addEventListener("click", function() {
+  let score = 0;
+  const answer1 = document.querySelector('input[name="answer1"]:checked').value;
+  const answer2 = document.querySelector('input[name="answer2"]:checked').value;
+  const answer3 = document.querySelector('input[name="answer3"]:checked').value;
+
+  if (answer1 === "Edmonton") {
+    score++;
+  }
+  if (answer2 === "Victoria") {
+    score++;
+  }
+  if (answer3 === "Toronto") {
+    score++;
+  }
+
+  scoreSpan.innerHTML = score;
+  resultContainer.style.display = "block";
+});
+
+  
+    </script>
+  </body>
+</html>
