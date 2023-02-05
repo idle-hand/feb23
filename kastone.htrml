@@ -67,3 +67,5 @@
         result.innerHTML = `You scored ${score} out of 3`;
       });
     </script>
+</body>
+</html>
