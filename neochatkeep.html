@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <style>
+      /* Responsive design */
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Quiz styles */
+      .quiz-container {
+        background-color: lightgray;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      .question {
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .options {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .options li {
+        margin-bottom: 10px;
+      }
+
+      .options input[type="radio"] {
+        margin-right: 10px;
+      }
+
+      /* Result styles */
+      .result-container {
+        display: none;
+        background-color: lightgray;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .result {
+        font-size: 18px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="quiz-container">
+        <div class="question">What is the capital of Alberta?</div>
+        <ul class="options">
+          <li>
+            <input type="radio" name="answer" value="Toronto">Toronto
+          </li>
+          <li>
+            <input type="radio" name="answer" value="Edmonton">Edmonton
+          </li>
+          <li>
+            <input type="radio" name="answer" value="Victoria">Victoria
+          </li>
+        </ul>
+        <button id="submit-button">Submit</button>
+      </div>
+      <div class="result-container">
+        <div class="result">You scored: <span id="score">0</span>/1</div>
+      </div>
+    </div>
+    <script>
+      const submitButton = document.querySelector("#submit-button");
+      const resultContainer = document.querySelector(".result-container");
+      const scoreSpan = document.querySelector("#score");
+
+      submitButton.addEventListener("click", function() {
+        const answer = document.querySelector('input[name="answer"]:checked').value;
+        let score = 0;
+        if (answer === "Edmonton") {
+          score = 1;
+        }
+        scoreSpan.innerHTML = score;
+        resultContainer.style.display = "block";
+      });
+    </script>
+  </body>
+</html>
